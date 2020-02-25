@@ -30,7 +30,7 @@ if (location.pathname != "/index-rtl-fa.html" && location.pathname != "/index-rt
         switchClasses("pull-right", "pull-left");
         switchClasses("databox-right", "databox-left");
         switchClasses("item-right", "item-left");
-        $('.navbar-brand small img').attr('src', '/assets/admin/img/logo-rtl.png');
+        $('.navbar-brand small img').attr('src', 'assets/img/logo-rtl.png');
         if (rtlchanger != null)
             document.getElementById('rtl-changer').checked = true;
     }
@@ -120,7 +120,7 @@ $.each(popovers, function () {
                 .data("class") +
                 '"><div class="arrow"></div><h3 class="popover-title ' +
                 $(this)
-                    .data("titleclass") + '">Popover right</h3><div class="popover-content"></div></div>'
+                .data("titleclass") + '">Popover right</h3><div class="popover-content"></div></div>'
         });
 });
 
@@ -133,7 +133,7 @@ $.each(hoverpopovers, function () {
                 .data("class") +
                 '"><div class="arrow"></div><h3 class="popover-title ' +
                 $(this)
-                    .data("titleclass") + '">Popover right</h3><div class="popover-content"></div></div>',
+                .data("titleclass") + '">Popover right</h3><div class="popover-content"></div></div>',
             trigger: "hover"
         });
 });
@@ -369,7 +369,7 @@ function InitiateSettings() {
 
             if (($('#checkbox_fixedbreadcrumbs')
                 .is(":checked")) && !($(this)
-                    .is(":checked"))) {
+                .is(":checked"))) {
                 $('#checkbox_fixedbreadcrumbs')
                     .prop('checked', false);
                 $('.page-breadcrumbs')
@@ -378,7 +378,7 @@ function InitiateSettings() {
 
             if (($('#checkbox_fixedheader')
                 .is(":checked")) && !($(this)
-                    .is(":checked"))) {
+                .is(":checked"))) {
                 $('#checkbox_fixedheader')
                     .prop('checked', false);
                 $('.page-header')
@@ -402,7 +402,7 @@ function InitiateSettings() {
             }
             if (($('#checkbox_fixedbreadcrumbs')
                 .is(":checked")) && !($(this)
-                    .is(":checked"))) {
+                .is(":checked"))) {
                 $('#checkbox_fixedbreadcrumbs')
                     .prop('checked', false);
                 $('.page-breadcrumbs')
@@ -411,7 +411,7 @@ function InitiateSettings() {
 
             if (($('#checkbox_fixedheader')
                 .is(":checked")) && !($(this)
-                    .is(":checked"))) {
+                .is(":checked"))) {
                 $('#checkbox_fixedheader')
                     .prop('checked', false);
                 $('.page-header')
@@ -443,7 +443,7 @@ function InitiateSettings() {
             }
             if (($('#checkbox_fixedheader')
                 .is(":checked")) && !($(this)
-                    .is(":checked"))) {
+                .is(":checked"))) {
                 $('#checkbox_fixedheader')
                     .prop('checked', false);
                 $('.page-header')

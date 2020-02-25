@@ -7,6 +7,7 @@ if (readCookie("current-skin")) {
     var a = document.createElement('link');
     a.href = readCookie("current-skin");
     a.rel = "stylesheet";
+    console.log(a + "" + a.href);
     document.getElementsByTagName("head")[0].appendChild(a);
 }
 
@@ -66,7 +67,7 @@ function readCookie(name) {
 
 //Erase Cookie Function
 function eraseCookie(name) {
-    createCookie(name, "", -1);
+    createCookie(name, "", -5);
 }
 
 //Get Internet Explorer Version
