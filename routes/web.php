@@ -21,6 +21,15 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::match(['get', 'post'], 'forget', 'Index@forget');
 
     //  ----- 后台首页 -----
-    Route::get('index', 'Home@index');
-    Route::post('login_out', 'Home@login_out');
+    Route::group(['middleware' => 'admin.login'], function () {
+        Route::get('index', 'Home@index');
+        Route::post('login_out', 'Home@login_out');
+
+        // == 管理员操作 ==
+        Route::get('admin-list', 'Admin@info');
+        Route::post('admin-status', 'Admin@status');
+        Route::match(['get', 'post'], 'admin-add', 'Admin@add');
+        Route::match(['get', 'post'], 'admin-edit/{id?}', 'Admin@edit');
+        Route::post('admin-delete', 'Admin@delete');
+    });
 });

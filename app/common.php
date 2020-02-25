@@ -44,3 +44,12 @@ function mailto($user, $subject, $content)
     }
 }
 // Instantiation and passing `true` enables exceptions
+
+/**
+ * 分页标签替换
+ * @param $value
+ */
+function strToElement($value)
+{
+    return str_replace('span', 'a', $value);
+}

@@ -1,4 +1,4 @@
-<script src="/assets/admin/js/skins.min.js"></script>
+<script src="/assets/admin/js/skins.js"></script>
 <!--Basic Scripts-->
 <script src="/assets/admin/js/jquery.min.js"></script>
 <script src="/assets/admin/js/bootstrap.min.js"></script>
