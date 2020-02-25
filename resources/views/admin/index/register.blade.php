@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>登录操作</title>
+    <title>注册</title>
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link href="/assets/admin/css/bootstrap.min.css" rel="stylesheet" />
     <link href="/assets/admin/css/font-awesome.min.css" rel="stylesheet" />
@@ -17,7 +17,7 @@
     <div class="login-container">
         <div class="loginbox bg-white">
             <form>
-                <div class="loginbox-title">登录</div>
+                <div class="loginbox-title">注册</div>
                 <div class="loginbox-or">
                     <div class="or-line"></div>
                 </div>
@@ -25,7 +25,16 @@
                     <input type="text" name="username" class="form-control" placeholder="用户名" />
                 </div>
                 <div class="loginbox-textbox">
-                    <input type="text" name="password" class="form-control" placeholder="密码" />
+                    <input type="password" name="password" class="form-control" placeholder="密码" />
+                </div>
+                <div class="loginbox-textbox">
+                    <input type="password" name="conpass" class="form-control" placeholder="确认密码" />
+                </div>
+                <div class="loginbox-textbox">
+                    <input type="text" name="nickname" class="form-control" placeholder="昵称" />
+                </div>
+                <div class="loginbox-textbox">
+                    <input type="email" name="email" class="form-control" placeholder="邮箱" />
                 </div>
                 <div class="loginbox-forgot">
                     <a href="{{url('admin/forget')}}">忘记密码?</a>
@@ -34,7 +43,7 @@
                     <input type="submit" class="btn btn-primary btn-block" value="登录">
                 </div>
                 <div class="loginbox-signup">
-                    <a href="{{url('admin/register')}}">注册账户</a>
+                    <a href="{{url('admin')}}">返回登录</a>
                 </div>
             </form>
         </div>
@@ -68,7 +77,7 @@
 <script>
 $('form').submit(function(e) {
     var res = $(this).serialize();
-    var url = '{{url("admin")}}';
+    var url = '{{url("admin/register")}}';
     $.ajax({
         url: url,
         data: res,

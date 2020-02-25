@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>登录操作</title>
+    <title>忘记密码</title>
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link href="/assets/admin/css/bootstrap.min.css" rel="stylesheet" />
     <link href="/assets/admin/css/font-awesome.min.css" rel="stylesheet" />
@@ -17,24 +17,24 @@
     <div class="login-container">
         <div class="loginbox bg-white">
             <form>
-                <div class="loginbox-title">登录</div>
+                <div class="loginbox-title">忘记密码</div>
                 <div class="loginbox-or">
                     <div class="or-line"></div>
                 </div>
+                <input type="hidden" name="is_v">
                 <div class="loginbox-textbox">
-                    <input type="text" name="username" class="form-control" placeholder="用户名" />
+                    <input type="email" name="email" class="form-control" placeholder="邮箱" />
                 </div>
-                <div class="loginbox-textbox">
-                    <input type="text" name="password" class="form-control" placeholder="密码" />
+
+                <div class="loginbox-textbox hidden">
+                    <input type="text" name="code" class="form-control" placeholder="验证码" />
                 </div>
-                <div class="loginbox-forgot">
-                    <a href="{{url('admin/forget')}}">忘记密码?</a>
+                <div class="loginbox-textbox hidden">
+                    <input type="password" name="password" class="form-control" placeholder="密码" />
                 </div>
-                <div class="loginbox-submit">
-                    <input type="submit" class="btn btn-primary btn-block" value="登录">
-                </div>
-                <div class="loginbox-signup">
-                    <a href="{{url('admin/register')}}">注册账户</a>
+
+                <div class=" loginbox-submit">
+                    <input type="submit" class="btn btn-primary btn-block" value="获取验证码">
                 </div>
             </form>
         </div>
@@ -67,8 +67,9 @@
 
 <script>
 $('form').submit(function(e) {
+
     var res = $(this).serialize();
-    var url = '{{url("admin")}}';
+    var url = '{{url("admin/forget")}}';
     $.ajax({
         url: url,
         data: res,
@@ -79,7 +80,13 @@ $('form').submit(function(e) {
                     icon: 6
                 }, function(index) {
                     layer.close(index);
-                    location.href = data.url
+                    $('input[name="is_v"]').val(1);
+                    $('input[name="email"]').parent().addClass('hidden')
+                    $('input[name="code"]').parent().removeClass('hidden')
+                    $('input[name="password"]').parent().removeClass('hidden')
+                    if (data.url) {
+                        location.href = data.url;
+                    }
                 })
             } else {
                 layer.alert(data.msg, {
