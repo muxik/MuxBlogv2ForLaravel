@@ -11,6 +11,10 @@ class Index extends Controller
     //登录操作
     public function login()
     {
+        // 判断是否重复登录
+        if (session()->has('admin')) {
+            return redirect('admin/index');
+        }
         if (request()->isMethod('post')) {
             $data = request()->only(['username', 'password']);
             $result = (new Admin())->login($data);

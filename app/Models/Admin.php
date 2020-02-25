@@ -219,9 +219,9 @@ class Admin extends Model
             'nickname' => 'required'
         ];
         $msg = [
-            'oldpass.require' => '旧密码不能为空',
-            'newpass.require' => '新密码不能为空',
-            'nickname.require' =>  '昵称不能为空'
+            'oldpass.required'  => '旧密码不能为空',
+            'newpass.required'  => '新密码不能为空',
+            'nickname.required' =>  '昵称不能为空'
         ];
         $validator = Validator::make($data, $rule, $msg);
         if ($validator->fails()) {

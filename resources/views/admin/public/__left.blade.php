@@ -1,7 +1,7 @@
 <div class="page-sidebar" id="sidebar">
     <ul class="nav sidebar-menu">
         <li class="active">
-            <a href="index.html">
+            <a href="{{url('admin/index')}}">
                 <i class="menu-icon glyphicon glyphicon-home"></i>
                 <span class="menu-text">后台首页</span>
             </a>
@@ -52,12 +52,12 @@
             </a>
             <ul class="submenu">
                 <li>
-                    <a href="#">
+                    <a href="{{url('admin/member-list')}}">
                         <span class="menu-text">会员列表</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="{{url('admin/member-add')}}">
                         <span class="menu-text">会员添加</span>
                     </a>
                 </li>

@@ -37,7 +37,7 @@
                 <!-- Navbar Barnd -->
                 <div class="navbar-header pull-left">
                     <a href="#" class="navbar-brand">
-                        <small style="line-height: 40px;">梦中程序员管理后台</small>
+                        <small style="line-height: 40px;">Mux Blog 2.0</small>
                     </a>
                 </div>
                 <!-- /Navbar Barnd -->

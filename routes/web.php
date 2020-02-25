@@ -31,5 +31,11 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
         Route::match(['get', 'post'], 'admin-add', 'Admin@add');
         Route::match(['get', 'post'], 'admin-edit/{id?}', 'Admin@edit');
         Route::post('admin-delete', 'Admin@delete');
+
+        // == 会员操作 ==
+        Route::get('member-list', 'Member@info');
+        Route::match(['get', 'post'], 'member-add', 'Member@add');
+        Route::match(['get', 'post'], 'member-edit/{id?}', 'Member@edit');
+        Route::post('member-delete', 'Member@delete');
     });
 });
