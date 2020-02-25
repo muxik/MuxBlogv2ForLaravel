@@ -22,4 +22,5 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
 
     //  ----- 后台首页 -----
     Route::get('index', 'Home@index');
+    Route::post('login_out', 'Home@login_out');
 });
