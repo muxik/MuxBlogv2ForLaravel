@@ -1,4 +1,4 @@
-# MuxBlogv2 For laravel
+# MuxBlogv2 For laravel5.6
 
 **项目时间： `2020.2.24 - 项目还在开发中`**
 
