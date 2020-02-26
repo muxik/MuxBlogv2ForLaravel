@@ -7,19 +7,19 @@
             </a>
         </li>
         <li>
-            <a href="index.html" class="menu-dropdown">
+            <a href="#" class="menu-dropdown">
                 <i class="menu-icon glyphicon glyphicon glyphicon-th"></i>
                 <span class="menu-text">栏目管理</span>
                 <i class="menu-expand"></i>
             </a>
             <ul class="submenu">
                 <li>
-                    <a href="catelist.html">
+                    <a href="{{url('admin/cate-list')}}">
                         <span class="menu-text">栏目列表</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="{{url('admin/cate-add')}}">
                         <span class="menu-text">栏目添加</span>
                     </a>
                 </li>

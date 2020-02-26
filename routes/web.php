@@ -37,5 +37,12 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
         Route::match(['get', 'post'], 'member-add', 'Member@add');
         Route::match(['get', 'post'], 'member-edit/{id?}', 'Member@edit');
         Route::post('member-delete', 'Member@delete');
+
+        // == 栏目操作 ==
+        Route::get('cate-list', 'Cate@info');
+        Route::post('cate-sort', 'Cate@sort');
+        Route::post('cate-delete', 'Cate@delete');
+        Route::match(['get', 'post'], 'cate-add', 'Cate@add');
+        Route::match(['get', 'post'], 'cate-edit/{id?}', 'Cate@edit');
     });
 });
