@@ -21,6 +21,16 @@
         color: #d73d32;
         font-size: 1.2em;
     }
+
+    .glyphicon-thumbs-up {
+        color: #53a93f;
+        font-size: 1.2em
+    }
+
+    .glyphicon-thumbs-down {
+        color: #d73d32;
+        font-size: 1.2em;
+    }
     </style>
 </head>
 
