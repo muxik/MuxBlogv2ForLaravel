@@ -56,5 +56,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
         // == 评论操作 ==
         Route::get('comment-list', 'Comment@info');
         Route::post('comment-delete', 'Comment@delete');
+
+        // == 系统设置 == 
+        Route::match(['get', 'post'], 'system', 'System@info');
     });
 });

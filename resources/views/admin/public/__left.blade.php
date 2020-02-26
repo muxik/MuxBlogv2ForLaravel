@@ -97,7 +97,7 @@
             </ul>
         </li>
         <li>
-            <a href="#">
+            <a href="{{url('admin/system')}}">
                 <i class="menu-icon glyphicon glyphicon-cog"></i>
                 <span class="menu-text">系统设置</span>
             </a>
