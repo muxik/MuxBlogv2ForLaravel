@@ -20,6 +20,12 @@ class Member extends Model
     // 时间戳转换
     protected $dates = ['created_at', 'updated_at', 'deleted_at'];
 
+    // 关联文章模型
+    public function articles()
+    {
+        return $this->hasMany('App\\Models\\Article', 'member_id', 'id');
+    }
+
     public function add($data)
     {
         // 验证规则
