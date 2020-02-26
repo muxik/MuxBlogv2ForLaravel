@@ -52,5 +52,9 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
         Route::post('article-delete', 'Article@delete');
         Route::match(['get', 'post'], 'article-add', 'Article@add');
         Route::match(['get', 'post'], 'article-edit/{id?}', 'Article@edit');
+
+        // == 评论操作 ==
+        Route::get('comment-list', 'Comment@info');
+        Route::post('comment-delete', 'Comment@delete');
     });
 });

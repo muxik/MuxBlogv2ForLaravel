@@ -46,6 +46,20 @@
         </li>
         <li>
             <a href="#" class="menu-dropdown">
+                <i class="menu-icon glyphicon glyphicon glyphicon glyphicon-list-alt"></i>
+                <span class="menu-text">评论管理管理</span>
+                <i class="menu-expand"></i>
+            </a>
+            <ul class="submenu">
+                <li>
+                    <a href="{{url('admin/comment-list')}}">
+                        <span class="menu-text">评论列表</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" class="menu-dropdown">
                 <i class="menu-icon glyphicon glyphicon glyphicon-user"></i>
                 <span class="menu-text">会员管理</span>
                 <i class="menu-expand"></i>
