@@ -26,6 +26,12 @@ class Member extends Model
         return $this->hasMany('App\\Models\\Article', 'member_id', 'id');
     }
 
+    // 关联评论
+    public function comments()
+    {
+        return $this->hasMany('App\\Models\\Comment', 'member_id', 'id');
+    }
+
     public function add($data)
     {
         // 验证规则

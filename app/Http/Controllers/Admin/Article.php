@@ -133,7 +133,10 @@ class Article extends Controller
     // 删除文章
     public function delete()
     {
-        $articleInfo = ArticleModel::find(request('id'));
+        $articleInfo = ArticleModel::with('comments')->find(request('id'));
+        foreach ($articleInfo->comments as $vo) {
+            $vo->delete();
+        }
 
         $result = $articleInfo->delete();
         if ($result) {

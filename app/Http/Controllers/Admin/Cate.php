@@ -76,8 +76,13 @@ class Cate extends Controller
     {
         $cateInfo = CateModel::with('articles')->find(request('id'));
 
+        // 删除栏目下的文章
         foreach ($cateInfo->articles as $vo) {
             $vo->delete();
+        }
+        // 删除栏目文章下评论
+        foreach ($cateInfo->articles as $vo) {
+            $vo['comments']->delete();
         }
 
         $result = $cateInfo->delete();

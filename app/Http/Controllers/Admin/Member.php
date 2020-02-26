@@ -68,9 +68,14 @@ class Member extends Controller
     // 会员删除
     public function delete()
     {
-        $memberInfo = MemberModel::with('articles')->find(request('id'));
+        $memberInfo = MemberModel::with('articles', 'comments')->find(request('id'));
 
+        // 删除会员文章
         foreach ($memberInfo->articles as $vo) {
+            $vo->delete();
+        }
+        // 删除会员评论
+        foreach ($memberInfo->comments as $vo) {
             $vo->delete();
         }
         $result = $memberInfo->delete();

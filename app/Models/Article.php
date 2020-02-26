@@ -67,6 +67,12 @@ class Article extends Model
         }
     }
 
+    // 关联评论
+    public function comments()
+    {
+        return $this->hasMany('App\\Models\Comment', 'article_id', 'id');
+    }
+
     // 添加文章
     public function edit($data)
     {
