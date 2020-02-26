@@ -41,7 +41,7 @@
                                             <th>文章作者</th>
                                             <th>所属导航</th>
                                             <th>是否推荐(点击取消)</th>
-                                            <th>文章状态(点击操作)</th>
+                                            <th>文章状态(点击更换)</th>
                                             <th>发布时间</th>
                                             <th>操作</th>
                                         </tr>
@@ -145,7 +145,7 @@ $(function() {
     $('.status').click(function() {
         var status = $(this).attr('status');
         var id = $(this).attr('dataid');
-        layer.confirm("确定操作", {
+        layer.confirm("确定更换状态", {
             icon: 3
         }, (index) => {
             layer.close(index)

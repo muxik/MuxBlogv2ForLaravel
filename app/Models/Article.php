@@ -32,4 +32,58 @@ class Article extends Model
     {
         return $this->belongsTo('App\\Models\\Cate', 'cate_id', 'id');
     }
+
+    // 添加文章
+    public function add($data)
+    {
+        $rule = [
+            'title' => 'bail|required',
+            'desc'  => 'required',
+            'content' => 'required',
+        ];
+
+        $msg = [
+            'title.required' => '标题不能为空',
+            'desc.required' => '文章详情不能为空',
+            'content.required' => '文章内容不能为空'
+        ];
+
+        $validator = Validator::make($data, $rule, $msg);
+        if ($validator->fails()) {
+            return $validator->errors()->first();
+        }
+        $result = $this->create($data);
+        if ($result) {
+            return 1;
+        } else {
+            return "服务器错误,操作失败";
+        }
+    }
+
+    // 添加文章
+    public function edit($data)
+    {
+        $rule = [
+            'title' => 'bail|required',
+            'desc'  => 'required',
+            'content' => 'required',
+        ];
+
+        $msg = [
+            'title.required' => '标题不能为空',
+            'desc.required' => '文章详情不能为空',
+            'content.required' => '文章内容不能为空'
+        ];
+
+        $validator = Validator::make($data, $rule, $msg);
+        if ($validator->fails()) {
+            return $validator->errors()->first();
+        }
+        $result = $this->create($data);
+        if ($result) {
+            return 1;
+        } else {
+            return "服务器错误,操作失败";
+        }
+    }
 }

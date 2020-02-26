@@ -10,6 +10,7 @@
     <link href="/assets/admin/css/bootstrap.min.css" rel="stylesheet" />
     <link href="/assets/admin/css/font-awesome.min.css" rel="stylesheet" />
     <link href="/assets/admin/css/weather-icons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/assets/editormd/css/editormd.css">
     <link id="beyond-link" href="/assets/admin/css/beyond.min.css" rel="stylesheet" type="text/css" />
     <style>
     .glyphicon-ok-sign {

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Article as ArticleModel;
+use App\Models\Cate;
 
 class Article extends Controller
 {
@@ -71,6 +72,50 @@ class Article extends Controller
     public function add()
     {
         if (request()->isMethod('post')) {
+            $data = request()->only(['title', 'desc', 'content', 'member_id', 'cate_id']);
+            $result = (new ArticleModel())->add($data);
+            if ($result == 1) {
+                $msg = [
+                    'code' => 1,
+                    'msg'  => '添加成功!',
+                    'url'  => url('admin/article-list')
+                ];
+            } else {
+                $msg = [
+                    'code' => 0,
+                    'msg'  => $result
+                ];
+            }
+            return $msg;
         }
+        // 模板赋值
+        $cates = (new Cate())->all();
+        $vData = [
+            'cates' => $cates
+        ];
+        return view('admin.article.add', $vData);
+    }
+
+    // 修改文章
+    public function edit()
+    {
+        if (request()->isMethod('post')) {
+            $data = request()->only(['title', 'desc', 'content', 'member_id', 'cate_id']);
+            $result = (new ArticleModel())->edit($data);
+            if ($result == 1) {
+                $msg = [
+                    'code' => 1,
+                    'msg'  => '修改成功!',
+                    'url'  => url('admin/article-list')
+                ];
+            } else {
+                $msg = [
+                    'code' => 0,
+                    'msg'  => $result
+                ];
+            }
+            return $msg;
+        }
+        return view('admin.article.edit', ['articleInfo' => ArticleModel::find(request('id'))]);
     }
 }
