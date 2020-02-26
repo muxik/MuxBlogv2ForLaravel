@@ -10,28 +10,27 @@
     <link href="/assets/admin/css/bootstrap.min.css" rel="stylesheet" />
     <link href="/assets/admin/css/font-awesome.min.css" rel="stylesheet" />
     <link href="/assets/admin/css/weather-icons.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="/assets/editormd/css/editormd.css">
     <link id="beyond-link" href="/assets/admin/css/beyond.min.css" rel="stylesheet" type="text/css" />
     <style>
-    .glyphicon-ok-sign {
-        color: #53a93f;
-        font-size: 1.2em
-    }
+        .glyphicon-ok-sign {
+            color: #53a93f;
+            font-size: 1.2em
+        }
 
-    .glyphicon-remove-sign {
-        color: #d73d32;
-        font-size: 1.2em;
-    }
+        .glyphicon-remove-sign {
+            color: #d73d32;
+            font-size: 1.2em;
+        }
 
-    .glyphicon-thumbs-up {
-        color: #53a93f;
-        font-size: 1.2em
-    }
+        .glyphicon-thumbs-up {
+            color: #53a93f;
+            font-size: 1.2em
+        }
 
-    .glyphicon-thumbs-down {
-        color: #d73d32;
-        font-size: 1.2em;
-    }
+        .glyphicon-thumbs-down {
+            color: #d73d32;
+            font-size: 1.2em;
+        }
     </style>
 </head>
 
@@ -67,8 +66,7 @@
                                         <img src="/assets/admin/img/logo.jpg">
                                     </div>
                                     <section>
-                                        <h2><span class="profile"><span
-                                                    style="min-width: 58px">{{session('admin.nickname')}}</span></span>
+                                        <h2><span class="profile"><span style="min-width: 58px">{{session('admin.nickname')}}</span></span>
                                         </h2>
                                     </section>
                                 </a>
@@ -91,30 +89,18 @@
                                     <!--Theme Selector Area-->
                                     <li class="theme-area">
                                         <ul class="colorpicker" id="skin-changer">
-                                            <li><a class="colorpick-btn" href="#" style="background-color:#5DB2FF;"
-                                                    rel="/assets/admin/css/skins/blue.min.css"></a></li>
-                                            <li><a class="colorpick-btn" href="#" style="background-color:#2dc3e8;"
-                                                    rel="/assets/admin/css/skins/azure.min.css"></a></li>
-                                            <li><a class="colorpick-btn" href="#" style="background-color:#03B3B2;"
-                                                    rel="/assets/admin/css/skins/teal.min.css"></a></li>
-                                            <li><a class="colorpick-btn" href="#" style="background-color:#53a93f;"
-                                                    rel="/assets/admin/css/skins/green.min.css"></a></li>
-                                            <li><a class="colorpick-btn" href="#" style="background-color:#FF8F32;"
-                                                    rel="/assets/admin/css/skins/orange.min.css"></a></li>
-                                            <li><a class="colorpick-btn" href="#" style="background-color:#cc324b;"
-                                                    rel="/assets/admin/css/skins/pink.min.css"></a></li>
-                                            <li><a class="colorpick-btn" href="#" style="background-color:#AC193D;"
-                                                    rel="/assets/admin/css/skins/darkred.min.css"></a></li>
-                                            <li><a class="colorpick-btn" href="#" style="background-color:#8C0095;"
-                                                    rel="/assets/admin/css/skins/purple.min.css"></a></li>
-                                            <li><a class="colorpick-btn" href="#" style="background-color:#0072C6;"
-                                                    rel="/assets/admin/css/skins/darkblue.min.css"></a></li>
-                                            <li><a class="colorpick-btn" href="#" style="background-color:#585858;"
-                                                    rel="/assets/admin/css/skins/gray.min.css"></a></li>
-                                            <li><a class="colorpick-btn" href="#" style="background-color:#474544;"
-                                                    rel="/assets/admin/css/skins/black.min.css"></a></li>
-                                            <li><a class="colorpick-btn" href="#" style="background-color:#001940;"
-                                                    rel="/assets/admin/css/skins/deepblue.min.css"></a></li>
+                                            <li><a class="colorpick-btn" href="#" style="background-color:#5DB2FF;" rel="/assets/admin/css/skins/blue.min.css"></a></li>
+                                            <li><a class="colorpick-btn" href="#" style="background-color:#2dc3e8;" rel="/assets/admin/css/skins/azure.min.css"></a></li>
+                                            <li><a class="colorpick-btn" href="#" style="background-color:#03B3B2;" rel="/assets/admin/css/skins/teal.min.css"></a></li>
+                                            <li><a class="colorpick-btn" href="#" style="background-color:#53a93f;" rel="/assets/admin/css/skins/green.min.css"></a></li>
+                                            <li><a class="colorpick-btn" href="#" style="background-color:#FF8F32;" rel="/assets/admin/css/skins/orange.min.css"></a></li>
+                                            <li><a class="colorpick-btn" href="#" style="background-color:#cc324b;" rel="/assets/admin/css/skins/pink.min.css"></a></li>
+                                            <li><a class="colorpick-btn" href="#" style="background-color:#AC193D;" rel="/assets/admin/css/skins/darkred.min.css"></a></li>
+                                            <li><a class="colorpick-btn" href="#" style="background-color:#8C0095;" rel="/assets/admin/css/skins/purple.min.css"></a></li>
+                                            <li><a class="colorpick-btn" href="#" style="background-color:#0072C6;" rel="/assets/admin/css/skins/darkblue.min.css"></a></li>
+                                            <li><a class="colorpick-btn" href="#" style="background-color:#585858;" rel="/assets/admin/css/skins/gray.min.css"></a></li>
+                                            <li><a class="colorpick-btn" href="#" style="background-color:#474544;" rel="/assets/admin/css/skins/black.min.css"></a></li>
+                                            <li><a class="colorpick-btn" href="#" style="background-color:#001940;" rel="/assets/admin/css/skins/deepblue.min.css"></a></li>
                                         </ul>
                                     </li>
                                     <!--/Theme Selector Area-->

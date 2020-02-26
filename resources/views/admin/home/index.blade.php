@@ -6,7 +6,7 @@
     <div class="page-container">
 
         <!-- Page Sidebar -->
-        @include('admin.public.__left');
+        @include('admin.public.__left')
         <!-- /Page Sidebar -->
         <!-- Page Content -->
         <div class="page-content">
@@ -82,7 +82,7 @@
 
 </div>
 
-@include('admin.public.__js');
+@include('admin.public.__js')
 </body>
 <!--  /Body -->
 

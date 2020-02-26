@@ -39,14 +39,21 @@ class Article extends Model
         $rule = [
             'title' => 'bail|required',
             'desc'  => 'required',
+            'tags'  => 'required',
             'content' => 'required',
+            'cate_id' => 'required',
+            'member_id' => 'required',
         ];
 
         $msg = [
             'title.required' => '标题不能为空',
+            'tags.required' => '标签不能为空',
             'desc.required' => '文章详情不能为空',
-            'content.required' => '文章内容不能为空'
+            'content.required' => '文章内容不能为空',
+            'cate_id.required' => '栏目不能为空',
+            'member_id.required' => '作者不能为空'
         ];
+
 
         $validator = Validator::make($data, $rule, $msg);
         if ($validator->fails()) {
@@ -66,20 +73,35 @@ class Article extends Model
         $rule = [
             'title' => 'bail|required',
             'desc'  => 'required',
+            'tags'  => 'required',
             'content' => 'required',
+            'cate_id' => 'required',
+            'member_id' => 'required',
         ];
 
         $msg = [
             'title.required' => '标题不能为空',
+            'tags.required' => '标签不能为空',
             'desc.required' => '文章详情不能为空',
-            'content.required' => '文章内容不能为空'
+            'content.required' => '文章内容不能为空',
+            'cate_id.required' => '栏目不能为空',
+            'member_id.required' => '作者不能为空'
         ];
 
         $validator = Validator::make($data, $rule, $msg);
         if ($validator->fails()) {
             return $validator->errors()->first();
         }
-        $result = $this->create($data);
+
+        // 查询保存
+        $articleInfo = $this->find($data['id']);
+        $articleInfo->title = $data['title'];
+        $articleInfo->desc = $data['desc'];
+        $articleInfo->tags = $data['tags'];
+        $articleInfo->content = $data['content'];
+        $articleInfo->member_id = $data['member_id'];
+        $articleInfo->cate_id = $data['cate_id'];
+        $result = $articleInfo->save($data);
         if ($result) {
             return 1;
         } else {

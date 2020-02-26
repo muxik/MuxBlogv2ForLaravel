@@ -72,8 +72,9 @@
                                         </td>
                                         <td><span>{{$vo->created_at}}</span></td>
                                         <td>
-                                            <a href=" #" class="btn btn-md btn-warning">编辑</a>
-                                            <a href="#" class="btn btn-md btn-azure delete" dataid="{{$vo->id}}">删除</a>
+                                            <a href="{{url('admin/article-edit',['id' => $vo->id])}}"
+                                                class="btn btn-md btn-warning">编辑</a>
+                                            <a href="#" class="btn btn-md btn-danger delete" dataid="{{$vo->id}}">删除</a>
                                         </td>
                                     </tr>
                                     @empty
@@ -185,7 +186,7 @@ $(function() {
         var res = {
             "id": id
         };
-        var url = '{{url("admin/cate-delete")}}';
+        var url = '{{url("admin/article-delete")}}';
         layer.confirm("确定删除吗?", {
             title: "删除操作",
             icon: 3

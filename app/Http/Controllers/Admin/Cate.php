@@ -74,7 +74,11 @@ class Cate extends Controller
     // 栏目删除
     public function delete()
     {
-        $cateInfo = CateModel::find(request('id'));
+        $cateInfo = CateModel::with('articles')->find(request('id'));
+
+        foreach ($cateInfo->articles as $vo) {
+            $vo->delete();
+        }
 
         $result = $cateInfo->delete();
         if ($result) {

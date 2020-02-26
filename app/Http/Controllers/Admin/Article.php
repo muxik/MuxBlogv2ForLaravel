@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Article as ArticleModel;
 use App\Models\Cate;
+use App\Models\Member;
 
 class Article extends Controller
 {
@@ -72,7 +73,7 @@ class Article extends Controller
     public function add()
     {
         if (request()->isMethod('post')) {
-            $data = request()->only(['title', 'desc', 'content', 'member_id', 'cate_id']);
+            $data = request()->only(['title', 'tags', 'desc', 'content', 'member_id', 'cate_id']);
             $result = (new ArticleModel())->add($data);
             if ($result == 1) {
                 $msg = [
@@ -90,8 +91,10 @@ class Article extends Controller
         }
         // 模板赋值
         $cates = (new Cate())->all();
+        $members = (new Member())->all();
         $vData = [
-            'cates' => $cates
+            'cates' => $cates,
+            'members' => $members
         ];
         return view('admin.article.add', $vData);
     }
@@ -100,7 +103,7 @@ class Article extends Controller
     public function edit()
     {
         if (request()->isMethod('post')) {
-            $data = request()->only(['title', 'desc', 'content', 'member_id', 'cate_id']);
+            $data = request()->only(['id', 'title', 'tags', 'desc', 'content', 'member_id', 'cate_id']);
             $result = (new ArticleModel())->edit($data);
             if ($result == 1) {
                 $msg = [
@@ -116,6 +119,35 @@ class Article extends Controller
             }
             return $msg;
         }
-        return view('admin.article.edit', ['articleInfo' => ArticleModel::find(request('id'))]);
+        $articleInfo = ArticleModel::orderBy('is_top')->with('members', 'cates')->find(request('id'));
+        $cates = (new Cate())->all();
+        $members = (new Member())->all();
+        $vData = [
+            'cates' => $cates,
+            'members' => $members,
+            'articleInfo' => $articleInfo
+        ];
+        return view('admin.article.edit', $vData);
+    }
+
+    // 删除文章
+    public function delete()
+    {
+        $articleInfo = ArticleModel::find(request('id'));
+
+        $result = $articleInfo->delete();
+        if ($result) {
+            $msg = [
+                'code' => 1,
+                'msg'  => '删除成功',
+                'url'  => ""
+            ];
+        } else {
+            $msg = [
+                'code' => 0,
+                'msg'  => '服务器错误,删除失败!'
+            ];
+        }
+        return $msg;
     }
 }

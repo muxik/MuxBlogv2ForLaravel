@@ -51,6 +51,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
         Route::post('article-status', 'Article@status');
         Route::post('article-delete', 'Article@delete');
         Route::match(['get', 'post'], 'article-add', 'Article@add');
-        Route::match(['get', 'post'], 'article-edit', 'Article@edit');
+        Route::match(['get', 'post'], 'article-edit/{id?}', 'Article@edit');
     });
 });

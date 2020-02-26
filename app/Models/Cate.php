@@ -21,6 +21,12 @@ class Cate extends Model
     // 时间戳转换
     protected $dates = ['created_at', 'updated_at', 'deleted_at'];
 
+    // 关联文章模型
+    public function articles()
+    {
+        return $this->hasMany('App\\Models\\Article', 'cate_id', 'id');
+    }
+
     // 栏目添加
     public function add($data)
     {
