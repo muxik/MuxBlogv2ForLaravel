@@ -12,6 +12,7 @@
 Route::namespace('Index')->group(function () {
     Route::get('/', 'Index@index');
     Route::get('index/{id?}', 'Index@index');
+    Route::get('info/{id?}', 'Index@info');
 });
 
 /**

@@ -26,4 +26,11 @@ class Index extends IndexController
         ];
         return view('index.index.index', $vData);
     }
+
+    // 文章详情页
+    public function info()
+    {
+        $articleInfo = Article::with('comments')->find(request('id'));
+        return view('index.index.info', ['articleInfo' => $articleInfo]);
+    }
 }

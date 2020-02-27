@@ -3,7 +3,7 @@
     <div class="topic-list">
         @foreach ($top_articles as $vo)
         <div class="topic-list-item">
-            <a href="#" class="title">{{$vo->title}}</a>
+            <a href="{{url('info',['id' => $vo->id])}}" class="title">{{$vo->title}}</a>
         </div>
         @endforeach
     </div>

@@ -11,7 +11,7 @@
             <div class="article-list">
                 @foreach($articles as $vo)
                 <div class="article-list-item">
-                    <a href="#" class="title">{{$vo->title}}</a>
+                    <a href="{{url('info' , ['id'=>$vo->id])}}" class="title">{{$vo->title}}</a>
                     <div class="info">
                         <span class="author">作者：{{$vo->members->nickname}}</span>-
                         <span class="time">发布时间：{{$vo->created_at}}</span>-
