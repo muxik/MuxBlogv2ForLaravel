@@ -1,15 +1,18 @@
 <?php
 
 /*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
+|---------------------------------------------------------------------------
+| Web Routes                                                               |
+|---------------------------------------------------------------------------
 */
+
+/**
+ * 前台路由
+ */
+Route::namespace('Index')->group(function () {
+    Route::get('/', 'Index@index');
+    Route::get('index/{id?}', 'Index@index');
+});
 
 /**
  * 后台路由
