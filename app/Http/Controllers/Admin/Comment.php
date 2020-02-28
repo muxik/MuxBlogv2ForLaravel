@@ -18,7 +18,7 @@ class Comment extends Controller
         return view('admin.comment.info', $vData);
     }
 
-    // 评论shanc 
+    // 评论删除
     public function delete()
     {
         $commentInfo = CommentModel::find(request('id'));

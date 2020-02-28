@@ -20,8 +20,10 @@
                 <div class="page-header"><b>相关评论</b></div>
                 <div class="comment-content">
                     <form action="#">
+                        <input type="hidden" name="article_id" value="{{$articleInfo->id}}">
+                        <input type="hidden" name="member_id" value="{{session('user.id')}}">
                         <div class="form-group">
-                            <textarea class="form-control" id="comment" name="comment" rows="5" cols=""></textarea>
+                            <textarea class="form-control" id="comment" name="content" rows="5" cols=""></textarea>
                         </div>
                         <div class="form-group pull-right">
                             <button class="btn btn-primary">评论（请认真评论）</button>
@@ -40,3 +42,34 @@
             </div>
         </div>
         @include('index.public.__foot')
+
+        <script>
+        $(function() {
+            $('form').submit(function(e) {
+                var res = $(this).serialize();
+                var url = '{{url("comm")}}';
+                $.ajax({
+                    url: url,
+                    data: res,
+                    type: 'post',
+                    success: function(data) {
+                        if (data.code == 1) {
+                            layer.alert(data.msg, {
+                                icon: 6
+                            }, function(index) {
+                                layer.close(index);
+                                location.href = data.url
+                            })
+                        } else {
+                            layer.alert(data.msg, {
+                                icon: 5
+                            }, function(index) {
+                                layer.close(index);
+                            })
+                        }
+                    }
+                });
+                return false;
+            });
+        });
+        </script>

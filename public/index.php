@@ -1,22 +1,4 @@
 <?php
-echo <<<EOF
-<script>
-console.log(`
-__  __            
-|  \\\/  |_   ___  __
-| |\\\/| | | | \\\ \\\/ /
-| |  | | |_| |>  < 
-|_|  |_|\\\__,_/_/\\\_\\\
-
-- - - - - - - - - - - -
-|     欢迎访问本网站    |
-- - - - - - - - - - - - 
-
-|    站长QQ:66915007        |
-| 意见反馈: lqjxm666@163.com |
-`);
-</script>
-EOF;
 
 /**
  * Laravel - A PHP Framework For Web Artisans

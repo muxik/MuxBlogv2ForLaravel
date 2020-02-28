@@ -32,6 +32,7 @@ class Member extends Model
         return $this->hasMany('App\\Models\\Comment', 'member_id', 'id');
     }
 
+    // 会员添加
     public function add($data)
     {
         // 验证规则
@@ -91,6 +92,83 @@ class Member extends Model
             return 1;
         } else {
             return "修改失败!";
+        }
+    }
+
+    // 会员注册
+    public function register($data)
+    {
+        // 验证规则
+        $rule = [
+            'username' => 'bail|required|unique:admins',
+            'nickname' => 'required',
+            'password' => 'required',
+            'conpass' =>  'required|same:password',
+            'email'    => 'required|email|unique:admins',
+            'verify'   => 'required|captcha'
+        ];
+        $msg = [
+            'username.required' => "用户名不能为空",
+            'username.unique'   => "用户名已存在",
+            'nickname.required' => "昵称不能为空",
+            'password.required' => "密码不能为空",
+            'conpass.required'  => "确认密码不能为空",
+            'conpass.same'      => "两次密码不一致",
+            'email.required'    => "邮箱不能为空",
+            'email.email'       => "邮箱格式不正确",
+            'email.unique'      => "邮箱已存在",
+            'verify.required'   => "验证码不能为空",
+            'verify.captcha'    => "验证码错误"
+        ];
+
+        $validator = Validator::make($data, $rule, $msg);
+        if ($validator->fails()) {
+            return $validator->errors()->first();
+        }
+
+        // 保存
+        $result = $this->create($data);
+        if ($result) {
+            return 1;
+        } else {
+            return "服务器错误";
+        }
+    }
+
+    // 会员登录
+    public function login($data)
+    {
+        $rule  = [
+            'username' => 'bail|required',
+            'password' => 'required',
+            'verify'   => 'required|captcha'
+        ];
+        $msg = [
+            'username.required' => '用户名不能为空',
+            'password.required' => '密码不能为空',
+            'verify.required' => '验证码不能为空',
+            'verify.captcha' => '验证码错误'
+        ];
+        $validator = Validator::make($data, $rule, $msg);
+
+        if ($validator->fails()) {
+            return $validator->errors()->first();
+        }
+        unset($data['verify']);
+        // 查询结果
+        $result = $this->where($data)->first();
+
+        if ($result) {
+            // 判断登录状态
+            $sessionData = [
+                'id' => $result['id'],
+                'nickname' => $result['nickname'],
+            ];
+            session(['user' => $sessionData]);
+
+            return 1;
+        } else {
+            return "登录失败,帐号或密码错误!";
         }
     }
 }

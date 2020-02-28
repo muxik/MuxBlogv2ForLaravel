@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Validator;
 
 class Comment extends Model
 {
@@ -30,5 +31,29 @@ class Comment extends Model
     public function members()
     {
         return $this->belongsTo('App\\Models\\Member', 'member_id', 'id');
+    }
+
+    // 文章评论
+    public function comm($data)
+    {
+        $rule = [
+            'content' => 'required'
+        ];
+        $msg = [
+            'content.required' => '内容不能为空'
+        ];
+        $validator = Validator::make($data, $rule, $msg);
+        if ($validator->fails()) {
+            return $validator->errors()->first();
+        }
+        $result = $this->create($data);
+        if ($result) {
+            $comm_num = (new Article())->where('id', $data['article_id'])->first();
+            $comm_num->comm_num += 1;
+            $comm_num->save();
+            return 1;
+        } else {
+            return "服务器错误!";
+        }
     }
 }

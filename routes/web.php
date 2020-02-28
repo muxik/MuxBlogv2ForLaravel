@@ -13,6 +13,12 @@ Route::namespace('Index')->group(function () {
     Route::get('/', 'Index@index');
     Route::get('index/{id?}', 'Index@index');
     Route::get('info/{id?}', 'Index@info');
+    Route::post('login_out', 'Index@login_out');
+    Route::post('comm', 'Index@comm');
+    Route::get('search', 'Index@search');
+    Route::match(['get', 'post'], 'register', 'Index@register');
+    Route::match(['get', 'post'], 'login', 'Index@login');
+    Route::match(['get', 'post'], 'contribute', 'Index@contribute');
 });
 
 /**

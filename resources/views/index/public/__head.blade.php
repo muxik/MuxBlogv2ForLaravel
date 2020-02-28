@@ -10,6 +10,12 @@
     <link rel="stylesheet" href="/assets/index/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/assets/index/css/animate.css" />
     <link rel="stylesheet" href="/assets/index/css/index.css" />
+    <style>
+    .input-group-addon {
+        padding: 0;
+    }
+    </style>
+
 </head>
 
 <body>
@@ -31,11 +37,16 @@
                     @endforeach
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">登录</a></li>
-                    <li><a href="#">注册</a></li>
-                    <li><a href="#">投稿</a></li>
+                    @if (!session()->has('user'))
+                    <li><a href="{{url('login')}}">登录</a></li>
+                    <li><a href="{{url('register')}}">注册</a></li>
+                    @else
+                    <li><a href="#">{{session('user.nickname')}}</a></li>
+                    <li><a href="{{url('contribute')}}">投稿</a></li>
+                    <li><a href="#" id="login_out">退出</a></li>
+                    @endif
                 </ul>
-                <form action="#" class="navbar-form navbar-right">
+                <form action="{{url('search')}}" class="navbar-form navbar-right">
                     <div class="form-group">
                         <input type="text" class="form-control input-sm" id="search" name="search" placeholder="搜索" />
                     </div>
